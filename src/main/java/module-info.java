@@ -10,6 +10,7 @@ module com.hex.hex {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
+    requires java.desktop;
 
     opens com.hex.hex to javafx.fxml;
     exports com.hex.hex;

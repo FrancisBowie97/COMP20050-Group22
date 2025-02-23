@@ -53,7 +53,7 @@ public class boardController {
             Double x = hexagon.getLayoutX();
             Double y = hexagon.getLayoutY();
 
-            Circle circle = new Circle(x, y, 43.3);
+            Circle circle = new Circle(x, y, 32.5);
             circles.add(circle);
             circle.setFill(Color.RED);
             ((AnchorPane) hexagon.getParent()).getChildren().add(circle);
@@ -67,7 +67,7 @@ public class boardController {
             Double x = hexagon.getLayoutX();
             Double y = hexagon.getLayoutY();
 
-            Circle circle = new Circle(x, y, 43.3);
+            Circle circle = new Circle(x, y, 32.5);
             circles.add(circle);
             circle.setFill(Color.BLUE);
             ((AnchorPane) hexagon.getParent()).getChildren().add(circle);
@@ -85,15 +85,15 @@ public class boardController {
         }
         if(user1 == 0){
             turn= new Label("red players turn");
-            turn.setLayoutX(804);
-            turn.setLayoutY(562);
+            turn.setLayoutX(1000);
+            turn.setLayoutY(500);
             parent.getChildren().add(turn);
 
         }
         else if(user2 == 0){
             turn = new Label("blue players turn");
-            turn.setLayoutX(804);
-            turn.setLayoutY(562);
+            turn.setLayoutX(1000);
+            turn.setLayoutY(500);
             parent.getChildren().add(turn);
         }
     }
