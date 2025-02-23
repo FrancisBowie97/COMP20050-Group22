@@ -86,14 +86,14 @@ public class boardController {
         }
         if(user1 == 0){
             turn= new Label("red players turn");
-            turn.setLayoutX(1075);
+            turn.setLayoutX(1095);
             turn.setLayoutY(375);
             parent.getChildren().add(turn);
 
         }
         else if(user2 == 0){
             turn = new Label("blue players turn");
-            turn.setLayoutX(1075);
+            turn.setLayoutX(1095);
             turn.setLayoutY(375);
             parent.getChildren().add(turn);
         }
