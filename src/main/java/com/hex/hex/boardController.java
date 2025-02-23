@@ -1,5 +1,6 @@
 package com.hex.hex;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -119,4 +120,7 @@ public class boardController {
     }
 
 
+    public void Close(ActionEvent actionEvent) {
+        System.exit(0);
+    }
 }

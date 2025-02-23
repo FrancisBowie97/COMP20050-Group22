@@ -311,6 +311,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Button layoutX="981.0" layoutY="542.0" mnemonicParsing="false" text="Button" onMouseClicked="#removeCircles"/>
+        <Button layoutX="981.0" layoutY="542.0" mnemonicParsing="false" text="Reset" onMouseClicked="#removeCircles"/>
+        <Button layoutX="981.0" layoutY="667.0" mnemonicParsing="false" onAction="#Close" text="Close" />
     </children>
 </AnchorPane>
