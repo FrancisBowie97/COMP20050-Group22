@@ -233,7 +233,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Button layoutX="1114.0" layoutY="519.0" mnemonicParsing="false" onMouseClicked="#removeCircles" text="Reset board" />
+        <Button layoutX="1100.0" layoutY="435.0" mnemonicParsing="false" onMouseClicked="#removeCircles" text="Reset board" />
       <Polygon fx:id="hex23" fill="DODGERBLUE" layoutX="915.0" layoutY="217.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
          <points>
             <Double fx:value="0.0" />
@@ -1890,6 +1890,6 @@
             <Double fx:value="-25.0" />
          </points>
       </Polygon>
-        <Button layoutX="1132.0" layoutY="619.0" mnemonicParsing="false" onAction="#Close" text="Close" />
+        <Button layoutX="1118.0" layoutY="602.0" mnemonicParsing="false" onAction="#Close" text="Close" />
     </children>
 </AnchorPane>
