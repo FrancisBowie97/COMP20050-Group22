@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.Double?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.shape.Polygon?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1024.0" prefWidth="1460.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hex.hex.boardController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1024.0" prefWidth="1460.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hex.hex.boardController">
     <children>
         <Polygon fx:id="hex1" fill="DODGERBLUE" layoutX="694.0" layoutY="82.0" onMouseClicked="#getHexID" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE" AnchorPane.bottomAnchor="892.0" AnchorPane.leftAnchor="649.0" AnchorPane.rightAnchor="721.0" AnchorPane.topAnchor="32.0">
             <points>
@@ -1890,5 +1890,6 @@
             <Double fx:value="-25.0" />
          </points>
       </Polygon>
+        <Button layoutX="1132.0" layoutY="619.0" mnemonicParsing="false" onAction="#Close" text="Close" />
     </children>
 </AnchorPane>
