@@ -48,6 +48,7 @@ public class boardController {
     private Polygon hex2; // Value injected by FXMLLoader
 
     private ArrayList<Circle> circles = new ArrayList<>();
+    private Circle TempCircle;
 
     @FXML
     public void getHexID(javafx.scene.input.MouseEvent mouseEvent) {
@@ -118,14 +119,61 @@ public class boardController {
         AnchorPane parent = (AnchorPane) button.getParent();
         removeAllCircles(parent);
     }
+
+    public void removeTempCircles(MouseEvent mouseEvent) {
+        Polygon Cell = (Polygon) mouseEvent.getSource();
+        AnchorPane pane = (AnchorPane) Cell.getParent();
+        pane.getChildren().remove(TempCircle);
+        TempCircle = null;
+//        for (Circle circle : TempCircle){
+//            pane.getChildren().remove(circle);
+//        }
+    }
     private void removeAllCircles(AnchorPane pane) {
         for(Circle circle : circles){
             pane.getChildren().remove(circle);
         }
+
+        pane.getChildren().remove(TempCircle);
+        TempCircle = null;
+
     }
 
-
+    /**
+     * Function to handle clicking on the "Close" button to exit the application.
+     * @param actionEvent - pass the Action event to the function.
+     */
     public void Close(ActionEvent actionEvent) {
         System.exit(0);
+    }
+
+    /**
+     * Handles highlighting of Cells if it is empty.
+     * @param mouseEvent - pass the Mouse event to function.
+     */
+    public void highlight(MouseEvent mouseEvent) {
+        Polygon hexagon = (Polygon) mouseEvent.getSource();
+        if (TempCircle == null){
+            Double x = hexagon.getLayoutX();
+            Double y = hexagon.getLayoutY();
+
+            Circle circle = new Circle(x, y, 27);
+            //circles.add(circle);
+            circle.setOpacity(0.5);
+            circle.setMouseTransparent(true);
+            ((AnchorPane) hexagon.getParent()).getChildren().add(circle);
+            if (Turn == Player.RED){
+                circle.setFill(Color.RED);
+            }
+            else if(Turn == Player.BLUE){
+                circle.setFill(Color.BLUE);
+            }
+            else {
+                circle.setFill(Color.WHITE);
+            }
+            TempCircle = circle;
+            ((AnchorPane) hexagon.getParent()).getChildren().add(circle);
+        }
+
     }
 }
