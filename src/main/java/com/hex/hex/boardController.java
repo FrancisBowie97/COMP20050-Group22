@@ -20,7 +20,7 @@ import javafx.scene.shape.Polygon;
 
 import static javafx.scene.paint.Color.color;
 
-enum Player {RED, BLUE};
+enum Player {RED, BLUE}; // enum to keep track of player turns
 
 /**
  * Board Class to control and store data regarding Cells and Nodes.
@@ -50,13 +50,17 @@ public class boardController {
     private ArrayList<Circle> circles = new ArrayList<>();
     private Circle TempCircle;
 
+    /**
+     * Function to handle clinking on a Cell.
+     * @param mouseEvent pass the mouse event to function.
+     */
     @FXML
     public void getHexID(javafx.scene.input.MouseEvent mouseEvent) {
 
         if(Turn == Player.RED){
             Polygon hexagon = (Polygon) mouseEvent.getSource();
-            Double x = hexagon.getLayoutX();
-            Double y = hexagon.getLayoutY();
+            double x = hexagon.getLayoutX();
+            double y = hexagon.getLayoutY();
 
             Circle circle = new Circle(x, y, 32.5);
             circles.add(circle);
@@ -70,8 +74,8 @@ public class boardController {
         }
         else if(Turn == Player.BLUE){
             Polygon hexagon = (Polygon) mouseEvent.getSource();
-            Double x = hexagon.getLayoutX();
-            Double y = hexagon.getLayoutY();
+            double x = hexagon.getLayoutX();
+            double y = hexagon.getLayoutY();
 
             Circle circle = new Circle(x, y, 32.5);
             circles.add(circle);
@@ -114,6 +118,10 @@ public class boardController {
 
     }
 
+    /**
+     * Function to handle clicking on "Reset" button.
+     * @param mouseEvent pass the Mouse event to function.
+     */
     public void removeCircles(MouseEvent mouseEvent) {
         Button button = (Button) mouseEvent.getSource();
         AnchorPane parent = (AnchorPane) button.getParent();
@@ -125,9 +133,6 @@ public class boardController {
         AnchorPane pane = (AnchorPane) Cell.getParent();
         pane.getChildren().remove(TempCircle);
         TempCircle = null;
-//        for (Circle circle : TempCircle){
-//            pane.getChildren().remove(circle);
-//        }
     }
     private void removeAllCircles(AnchorPane pane) {
         for(Circle circle : circles){
@@ -141,7 +146,7 @@ public class boardController {
 
     /**
      * Function to handle clicking on the "Close" button to exit the application.
-     * @param actionEvent - pass the Action event to the function.
+     * @param actionEvent pass the Action event to the function.
      */
     public void Close(ActionEvent actionEvent) {
         System.exit(0);
@@ -154,13 +159,13 @@ public class boardController {
     public void highlight(MouseEvent mouseEvent) {
         Polygon hexagon = (Polygon) mouseEvent.getSource();
         if (TempCircle == null){
-            Double x = hexagon.getLayoutX();
-            Double y = hexagon.getLayoutY();
+            double x = hexagon.getLayoutX();
+            double y = hexagon.getLayoutY();
 
             Circle circle = new Circle(x, y, 27);
             //circles.add(circle);
             circle.setOpacity(0.5);
-            circle.setMouseTransparent(true);
+            circle.setMouseTransparent(true);  // This allows interaction with the Cell through the TempCircle.
             ((AnchorPane) hexagon.getParent()).getChildren().add(circle);
             if (Turn == Player.RED){
                 circle.setFill(Color.RED);
@@ -172,7 +177,10 @@ public class boardController {
                 circle.setFill(Color.WHITE);
             }
             TempCircle = circle;
-            ((AnchorPane) hexagon.getParent()).getChildren().add(circle);
+            AnchorPane parent = (AnchorPane) hexagon.getParent();
+            if (!parent.getChildren().contains(circle)) {
+                parent.getChildren().add(circle);
+            }
         }
 
     }
