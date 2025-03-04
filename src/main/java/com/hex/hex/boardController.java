@@ -20,13 +20,16 @@ import javafx.scene.shape.Polygon;
 
 import static javafx.scene.paint.Color.color;
 
+enum Player {RED, BLUE};
+
 /**
- * Sample Skeleton for 'hello-view.fxml' Controller Class
+ * Board Class to control and store data regarding Cells and Nodes.
  */
 
 public class boardController {
-    int user1 = 0;
-    int user2 = 0;
+    Player Turn = Player.RED;
+//    int user1 = 0;
+//    int user2 = 0;
 
 
     @FXML // ResourceBundle that was given to the FXMLLoader
@@ -49,7 +52,7 @@ public class boardController {
     @FXML
     public void getHexID(javafx.scene.input.MouseEvent mouseEvent) {
 
-        if(user1 == 0){
+        if(Turn == Player.RED){
             Polygon hexagon = (Polygon) mouseEvent.getSource();
             Double x = hexagon.getLayoutX();
             Double y = hexagon.getLayoutY();
@@ -58,12 +61,13 @@ public class boardController {
             circles.add(circle);
             circle.setFill(Color.RED);
             ((AnchorPane) hexagon.getParent()).getChildren().add(circle);
-            user1 = 1;
-            user2 = 0;
+            Turn = Player.BLUE;
+//            user1 = 1;
+//            user2 = 0;
             AnchorPane parent = (AnchorPane) hexagon.getParent();
             displayTurn(parent);
         }
-        else if(user2 == 0){
+        else if(Turn == Player.BLUE){
             Polygon hexagon = (Polygon) mouseEvent.getSource();
             Double x = hexagon.getLayoutX();
             Double y = hexagon.getLayoutY();
@@ -72,30 +76,31 @@ public class boardController {
             circles.add(circle);
             circle.setFill(Color.BLUE);
             ((AnchorPane) hexagon.getParent()).getChildren().add(circle);
-            user2 = 1;
-            user1 = 0;
+            Turn = Player.RED;
+//            user2 = 1;
+//            user1 = 0;
             AnchorPane parent = (AnchorPane) hexagon.getParent();
             displayTurn(parent);
         }
 
     }
-    private Label turn;
+    private Label turnLabel;
     public void displayTurn(AnchorPane parent){
-        if(turn != null){
-            parent.getChildren().remove(turn);
+        if(turnLabel != null){
+            parent.getChildren().remove(turnLabel);
         }
-        if(user1 == 0){
-            turn= new Label("red players turn");
-            turn.setLayoutX(1095);
-            turn.setLayoutY(375);
-            parent.getChildren().add(turn);
+        if(Turn == Player.RED){
+            turnLabel = new Label("Red players turn");
+            turnLabel.setLayoutX(1095);
+            turnLabel.setLayoutY(375);
+            parent.getChildren().add(turnLabel);
 
         }
-        else if(user2 == 0){
-            turn = new Label("blue players turn");
-            turn.setLayoutX(1095);
-            turn.setLayoutY(375);
-            parent.getChildren().add(turn);
+        else if(Turn == Player.BLUE){
+            turnLabel = new Label("Blue players turn");
+            turnLabel.setLayoutX(1095);
+            turnLabel.setLayoutY(375);
+            parent.getChildren().add(turnLabel);
         }
     }
 
