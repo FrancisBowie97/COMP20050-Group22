@@ -11,6 +11,7 @@ module com.hex.hex {
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
     requires java.desktop;
+    requires annotations;
 
     opens com.hex.hex to javafx.fxml;
     exports com.hex.hex;
