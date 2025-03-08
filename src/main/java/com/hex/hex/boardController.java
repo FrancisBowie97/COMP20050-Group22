@@ -18,6 +18,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Polygon;
 
+import static javafx.scene.paint.Color.RED;
 import static javafx.scene.paint.Color.color;
 
 enum Player {RED, BLUE}; // enum to keep track of player turns
@@ -50,12 +51,14 @@ public class boardController {
     private ArrayList<Circle> circles = new ArrayList<>();
     private Circle TempCircle;
 
+    private ArrayList<ArrayList<Polygon> > RedGroupp = new ArrayList<>();
+    private ArrayList<ArrayList<Polygon> > BlueGroupp = new ArrayList<>();
     /**
      * Function to handle clinking on a Cell.
      * @param mouseEvent pass the mouse event to function.
      */
     @FXML
-    public void getHexID(javafx.scene.input.MouseEvent mouseEvent) {
+    public void getHexID(MouseEvent mouseEvent) {
 
         if(Turn == Player.RED){
             Polygon hexagon = (Polygon) mouseEvent.getSource();
@@ -65,6 +68,7 @@ public class boardController {
             Circle circle = new Circle(x, y, 32.5);
             circles.add(circle);
             circle.setFill(Color.RED);
+            hexagon.setUserData(Player.RED);
             ((AnchorPane) hexagon.getParent()).getChildren().add(circle);
             Turn = Player.BLUE;
 //            user1 = 1;
@@ -80,6 +84,7 @@ public class boardController {
             Circle circle = new Circle(x, y, 32.5);
             circles.add(circle);
             circle.setFill(Color.BLUE);
+            hexagon.setUserData(Player.BLUE);
             ((AnchorPane) hexagon.getParent()).getChildren().add(circle);
             Turn = Player.RED;
 //            user2 = 1;
@@ -107,6 +112,43 @@ public class boardController {
             turnLabel.setLayoutY(375);
             parent.getChildren().add(turnLabel);
         }
+    }
+    public void group(Polygon hexagon){
+        //sample arrayList NEIGHBOUR
+         ArrayList<Polygon> neighbours = new ArrayList<>();
+        ArrayList<Polygon> Blue = new ArrayList<>();
+        ArrayList<Polygon> Red = new ArrayList<>();
+        //get neighbours
+
+        for(Polygon neighbour : neighbours){
+            if(neighbour.getUserData() == Player.RED){
+                switch (hexagon.getUserData()){
+                    case Player.BLUE:
+                        break;
+                    case Player.RED:
+                        Red.add(neighbour);
+                        Red.add(hexagon);
+                        RedGroupp.add(Red);
+                        break;
+                    default:
+                        throw new IllegalStateException("Unexpected value: " + hexagon.getUserData());
+                }
+            }
+            if(neighbour.getUserData() == Player.BLUE){
+                switch (hexagon.getUserData()){
+                    case Player.BLUE:
+                        Blue.add(neighbour);
+                        Blue.add(hexagon);
+                        BlueGroupp.add(Blue);
+                        break;
+                    case Player.RED:
+                        break;
+                    default:
+                        throw new IllegalStateException("Unexpected value: " + hexagon.getUserData());
+                }
+            }
+        }
+
     }
 
 
