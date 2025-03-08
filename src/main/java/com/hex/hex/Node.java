@@ -1,6 +1,7 @@
 package com.hex.hex;
 
 public class Node {
+
     private static final char[] COL_LABELS = {'A', 'B', 'C', 'D', 'E', 'F', 'G'};
 
     private int row;
@@ -56,4 +57,5 @@ public class Node {
         Node anotherNode = new Node(6, 'D', "Blue");  // D6
         System.out.println(anotherNode); // Output: HexNode{D6}
     }
+
 }
