@@ -141,8 +141,8 @@ public class boardController {
     /**
      * Function to convert X and Y location values into grid coordinate system (e.g. "A1").
      *
-     * @param object  the object passed into the function
-     * @return Converted grid coordinates
+     * @param object  the object passed into the function i.e. Hex.
+     * @return Converted grid coordinates in alphanumeric.
      */
     private String[] Cord_convert(Polygon object) {
         // X starts from 300 up to 972 with 56 step.
@@ -220,7 +220,7 @@ public class boardController {
     }
 
     /**
-     * Handles highlighting of Cells if it is empty.
+     * Handles highlighting of Cells.
      * @param mouseEvent - pass the Mouse event to function.
      */
     public void highlight(MouseEvent mouseEvent) {
