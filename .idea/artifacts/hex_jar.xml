@@ -1,6 +1,5 @@
 <component name="ArtifactManager">
   <artifact type="jar" build-on-make="true" name="hex:jar">
-  <artifact type="jar" name="hex:jar">
     <output-path>$PROJECT_DIR$/out/artifacts/hex_jar</output-path>
     <root id="archive" name="hex.jar">
       <element id="module-output" name="hex" />

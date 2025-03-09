@@ -14,7 +14,7 @@ public class Node {
         this.row = row - 1;
         this.col = letterToIndex(colLetter);
 
-        if (this.row < 0 || this.row >= 13 || this.col < 0 || this.col >= 7) {
+        if (this.row < 0 || this.row >= 13 || this.col < 0 || this.col >= 13) {
             throw new IllegalArgumentException("Invalid coordinate: " + colLetter + row);
         }
         if(team != "Red" && team != "Blue") {

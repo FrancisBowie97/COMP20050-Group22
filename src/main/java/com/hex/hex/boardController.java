@@ -24,7 +24,6 @@ enum Player {RED, BLUE} // enum to keep track of player turns
 /**
  * Board Class to control and store data regarding Cells and Nodes.
  */
-
 public class boardController {
     Player Turn = Player.RED;
 
@@ -125,7 +124,7 @@ public class boardController {
 
 
     /**
-     * Function to return all the neighbours surrounding given node.
+     * Function to return all the neighbours(Nodes) surrounding given node.
      * @param node pass the node whose neighbours are to be returned
      * @return an Arraylist of valid neighbours
      */
@@ -159,6 +158,7 @@ public class boardController {
 
         return neighbors;
     }
+
     /**
      * Function to determine if a move is valid not. (currently only checks if cell is empty).
      * @param hexagon pass the concerned cell.
@@ -231,6 +231,8 @@ public class boardController {
         Button button = (Button) mouseEvent.getSource();
         AnchorPane parent = (AnchorPane) button.getParent();
         removeAllCircles(parent);
+        Hex_db = null;
+        Hex_db = new Node[13][13];
     }
 
     public void removeTempCircles(MouseEvent mouseEvent) {
@@ -239,6 +241,8 @@ public class boardController {
         pane.getChildren().remove(TempCircle);
         TempCircle = null;
     }
+
+
     private void removeAllCircles(AnchorPane pane) {
         for(Circle circle : circles){
             pane.getChildren().remove(circle);
