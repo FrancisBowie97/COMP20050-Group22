@@ -27,8 +27,6 @@ enum Player {RED, BLUE} // enum to keep track of player turns
 
 public class boardController {
     Player Turn = Player.RED;
-//    int user1 = 0;
-//    int user2 = 0;
 
 
     @FXML // ResourceBundle that was given to the FXMLLoader
@@ -72,9 +70,9 @@ public class boardController {
         if (isValid(hexagon)) {
 
             // Storing location info of the Cell.
-            Node temp = new Node(1, 'A', "Red");
             String[] cord = Cord_convert(hexagon);
             int[] cord_index = Cord_to_index(cord);
+
 
             if(Turn == Player.RED){
 
@@ -82,7 +80,7 @@ public class boardController {
                 circle.setFill(Color.RED);
                 circle.setMouseTransparent(true);
                 circles.add(circle);
-                hexagon.setUserData(Player.RED);
+                Node temp = new Node(cord_index[1]+1, cord[0].toCharArray()[0], "Red");
                 Hex_db[cord_index[0]][cord_index[1]] = temp;
                 parent.getChildren().add(circle);
                 Turn = Player.BLUE;
@@ -95,7 +93,7 @@ public class boardController {
                 circle.setFill(Color.BLUE);
                 circle.setMouseTransparent(true);
                 circles.add(circle);
-                hexagon.setUserData(Player.BLUE);
+                Node temp = new Node(cord_index[1]+1, cord[0].toCharArray()[0], "Blue");
                 Hex_db[cord_index[0]][cord_index[1]] = temp;
                 parent.getChildren().add(circle);
                 Turn = Player.RED;
@@ -127,6 +125,43 @@ public class boardController {
         return cord_ind;
     }
 
+
+    /**
+     * Function to return all the neighbours(Nodes) surrounding given node.
+     * @param node pass the node whose neighbours are to be returned
+     * @return an Arraylist of valid neighbours
+     */
+    private ArrayList<Node> getNeighbors(Node node) {
+        ArrayList<Node> neighbors = new ArrayList<>();
+        int[] loc = node.getIndexCords();
+        if ( loc[0] > 0 ) {
+            if ( loc[1]-loc[0] == 6 ) {
+                neighbors.add(Hex_db[loc[0]-1][loc[1]]);
+            }
+            if ( loc[1] > 0 ) {
+                neighbors.add(Hex_db[loc[0]-1][loc[1]-1]);
+            }
+        }
+        if ( loc[0]-loc[1] == 6 ) {
+            if ( loc[1] > 0 ) {
+                neighbors.add(Hex_db[loc[0]][loc[1]-1]);
+            }
+            if ( loc[1] < 12 ) {
+                neighbors.add(Hex_db[loc[0]+1][loc[1]]);
+            }
+        }
+        if ( loc[0] < 12 ) {
+            if ( loc[1] < 12 ) {
+                neighbors.add(Hex_db[loc[0]+1][loc[1]+1]);
+            }
+            if ( loc[1]-loc[0] == 6 ) {
+                neighbors.add(Hex_db[loc[0]][loc[1]+1]);
+            }
+        }
+
+        return neighbors;
+    }
+
     /**
      * Function to determine if a move is valid not. (currently only checks if cell is empty).
      * @param hexagon pass the concerned cell.
@@ -147,8 +182,8 @@ public class boardController {
     /**
      * Function to convert X and Y location values into grid coordinate system (e.g. "A1").
      *
-     * @param object  the object passed into the function
-     * @return Converted grid coordinates
+     * @param object  the object passed into the function i.e. Hex.
+     * @return Converted grid coordinates in alphanumeric.
      */
     private String[] Cord_convert(Polygon object) {
         // X starts from 300 up to 972 with 56 step.
@@ -293,11 +328,8 @@ public class boardController {
         Button button = (Button) mouseEvent.getSource();
         AnchorPane parent = (AnchorPane) button.getParent();
         removeAllCircles(parent);
-
-        for (int i = 0; i < Hex_db.length; i++) {
-            Arrays.fill(Hex_db[i], null);
-        }
-
+        Hex_db = null;
+        Hex_db = new Node[13][13];
     }
 
     public void removeTempCircles(MouseEvent mouseEvent) {
@@ -306,6 +338,8 @@ public class boardController {
         pane.getChildren().remove(TempCircle);
         TempCircle = null;
     }
+
+
     private void removeAllCircles(AnchorPane pane) {
         for(Circle circle : circles){
             pane.getChildren().remove(circle);
@@ -326,7 +360,7 @@ public class boardController {
     }
 
     /**
-     * Handles highlighting of Cells if it is empty.
+     * Handles highlighting of Cells.
      * @param mouseEvent - pass the Mouse event to function.
      */
     public void highlight(MouseEvent mouseEvent) {
