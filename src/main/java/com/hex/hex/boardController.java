@@ -68,9 +68,9 @@ public class boardController {
         if (isValid(hexagon)) {
 
             // Storing location info of the Cell.
-            Node temp = new Node();
             String[] cord = Cord_convert(hexagon);
             int[] cord_index = Cord_to_index(cord);
+
 
             if(Turn == Player.RED){
 
@@ -78,6 +78,7 @@ public class boardController {
                 circle.setFill(Color.RED);
                 circle.setMouseTransparent(true);
                 circles.add(circle);
+                Node temp = new Node(cord_index[1]+1, cord[0].toCharArray()[0], "Red");
                 Hex_db[cord_index[0]][cord_index[1]] = temp;
                 parent.getChildren().add(circle);
                 Turn = Player.BLUE;
@@ -90,6 +91,7 @@ public class boardController {
                 circle.setFill(Color.BLUE);
                 circle.setMouseTransparent(true);
                 circles.add(circle);
+                Node temp = new Node(cord_index[1]+1, cord[0].toCharArray()[0], "Blue");
                 Hex_db[cord_index[0]][cord_index[1]] = temp;
                 parent.getChildren().add(circle);
                 Turn = Player.RED;
@@ -105,7 +107,7 @@ public class boardController {
         Dis_cord.setLayoutX(x-5);
         Dis_cord.setLayoutY(y-5);
         Dis_cord.setMouseTransparent(true);
-        parent.getChildren().add(Dis_cord);
+//        parent.getChildren().add(Dis_cord);
 
     }
 
@@ -121,6 +123,42 @@ public class boardController {
         return cord_ind;
     }
 
+
+    /**
+     * Function to return all the neighbours surrounding given node.
+     * @param node pass the node whose neighbours are to be returned
+     * @return an Arraylist of valid neighbours
+     */
+    private ArrayList<Node> getNeighbors(Node node) {
+        ArrayList<Node> neighbors = new ArrayList<>();
+        int[] loc = node.getIndexCords();
+        if ( loc[0] > 0 ) {
+            if ( loc[1]-loc[0] == 6 ) {
+                neighbors.add(Hex_db[loc[0]-1][loc[1]]);
+            }
+            if ( loc[1] > 0 ) {
+                neighbors.add(Hex_db[loc[0]-1][loc[1]-1]);
+            }
+        }
+        if ( loc[0]-loc[1] == 6 ) {
+            if ( loc[1] > 0 ) {
+                neighbors.add(Hex_db[loc[0]][loc[1]-1]);
+            }
+            if ( loc[1] < 12 ) {
+                neighbors.add(Hex_db[loc[0]+1][loc[1]]);
+            }
+        }
+        if ( loc[0] < 12 ) {
+            if ( loc[1] < 12 ) {
+                neighbors.add(Hex_db[loc[0]+1][loc[1]+1]);
+            }
+            if ( loc[1]-loc[0] == 6 ) {
+                neighbors.add(Hex_db[loc[0]][loc[1]+1]);
+            }
+        }
+
+        return neighbors;
+    }
     /**
      * Function to determine if a move is valid not. (currently only checks if cell is empty).
      * @param hexagon pass the concerned cell.

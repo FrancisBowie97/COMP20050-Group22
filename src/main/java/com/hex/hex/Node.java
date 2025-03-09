@@ -1,13 +1,13 @@
 package com.hex.hex;
+enum Team {Red, Blue};
 
 public class Node {
 
-    private static final char[] COL_LABELS = {'A', 'B', 'C', 'D', 'E', 'F', 'G'};
+    private static final char[] COL_LABELS = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M'};
 
     private int row;
     private int col;
 
-    private enum Team {Red, Blue};
     private Team team;
 
     public Node(int row, char colLetter, String team) {
@@ -41,6 +41,10 @@ public class Node {
         return COL_LABELS[col] + String.valueOf(row + 1);
     }
 
+    public int[] getIndexCords() {
+        return new int[]{col, row};
+    }
+
     @Override
     public String toString() {
         return "HexNode{" + getCoordinate() + "}" + team.toString();
@@ -50,12 +54,12 @@ public class Node {
         return team;
     }
 
-    public static void main(String[] args) {
-        Node node = new Node(1, 'A', "Red");  // A1
-        System.out.println(node); // Output: HexNode{A1}
-
-        Node anotherNode = new Node(6, 'D', "Blue");  // D6
-        System.out.println(anotherNode); // Output: HexNode{D6}
-    }
+//    public static void main(String[] args) {
+//        Node node = new Node(1, 'A', "Red");  // A1
+//        System.out.println(node); // Output: HexNode{A1}
+//
+//        Node anotherNode = new Node(6, 'D', "Blue");  // D6
+//        System.out.println(anotherNode); // Output: HexNode{D6}
+//    }
 
 }
