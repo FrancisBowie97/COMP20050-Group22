@@ -1,5 +1,5 @@
 package com.hex.hex;
-
+enum Team {Red, Blue};
 public class Node {
 
     private static final char[] COL_LABELS = {'A', 'B', 'C', 'D', 'E', 'F', 'G'};
@@ -7,7 +7,7 @@ public class Node {
     private int row;
     private int col;
 
-    private enum Team {Red, Blue};
+
     private Team team;
 
     public Node(int row, char colLetter, String team) {

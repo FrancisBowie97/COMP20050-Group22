@@ -49,8 +49,8 @@ public class boardController {
     private ArrayList<Circle> circles = new ArrayList<>();
     private Circle TempCircle;
 
-    private ArrayList<ArrayList<Polygon> > RedGroupp = new ArrayList<>();
-    private ArrayList<ArrayList<Polygon> > BlueGroupp = new ArrayList<>();
+    private ArrayList<ArrayList<Node> > RedGroupp = new ArrayList<>();
+    private ArrayList<ArrayList<Node> > BlueGroupp = new ArrayList<>();
     private Node[][] Hex_db = new Node[13][13];
 
     /**
@@ -72,7 +72,7 @@ public class boardController {
         if (isValid(hexagon)) {
 
             // Storing location info of the Cell.
-            Node temp = new Node();
+            Node temp = new Node(1, 'A', "Red");
             String[] cord = Cord_convert(hexagon);
             int[] cord_index = Cord_to_index(cord);
 
@@ -82,6 +82,7 @@ public class boardController {
                 circle.setFill(Color.RED);
                 circle.setMouseTransparent(true);
                 circles.add(circle);
+                hexagon.setUserData(Player.RED);
                 Hex_db[cord_index[0]][cord_index[1]] = temp;
                 parent.getChildren().add(circle);
                 Turn = Player.BLUE;
@@ -94,6 +95,7 @@ public class boardController {
                 circle.setFill(Color.BLUE);
                 circle.setMouseTransparent(true);
                 circles.add(circle);
+                hexagon.setUserData(Player.BLUE);
                 Hex_db[cord_index[0]][cord_index[1]] = temp;
                 parent.getChildren().add(circle);
                 Turn = Player.RED;
@@ -109,7 +111,7 @@ public class boardController {
         Dis_cord.setLayoutX(x-5);
         Dis_cord.setLayoutY(y-5);
         Dis_cord.setMouseTransparent(true);
-        parent.getChildren().add(Dis_cord);
+//        parent.getChildren().add(Dis_cord);
 
     }
 
@@ -179,38 +181,95 @@ public class boardController {
             }
         }
     }
-    public void group(Polygon hexagon){
+
+    public Team checkColor(Node node){
+        return node.getTeam();
+    }
+
+    public ArrayList<Node> checkGroup(Node node){
+        //check if its apart of group and return that group
+        for(ArrayList<Node> group : RedGroupp){
+            if(group.contains(node)){
+                return group;
+            }
+        }
+        for (ArrayList<Node> group : BlueGroupp){
+            if(group.contains(node)){
+                return group;
+            }
+        }
+        return null;
+    }
+
+    private ArrayList<Node> getNeighbors(Node node){
+        ArrayList<Node> neighbors = new ArrayList<>();
+        return neighbors;
+    }
+
+    public boolean isCapturing(Node node){
+        ArrayList<Node> neighbors;
+        neighbors = getNeighbors(node);
+        for(Node neighbor : neighbors){
+            if(neighbor.getTeam() == node.getTeam()){
+                //group
+                //non-capturing
+                return false;
+            }
+            else if(neighbor.getTeam() == null){
+                //empty
+            }
+            else{
+                //opps
+                ArrayList<Node> bomboclat = checkGroup(neighbor);
+                ArrayList<Node> grap = checkGroup(neighbor);
+                if(bomboclat.size() > grap.size()){
+                    //cant do this move
+                    return false;
+                }
+                else if(bomboclat.size() < grap.size()){
+                    //remove that group
+                    return true;
+                }
+            }
+        }
+        return false;
+
+    }
+
+    public void group(Node hexagon){
         //sample arrayList NEIGHBOUR
-         ArrayList<Polygon> neighbours = new ArrayList<>();
-        ArrayList<Polygon> Blue = new ArrayList<>();
-        ArrayList<Polygon> Red = new ArrayList<>();
+         ArrayList<Node> neighbours = new ArrayList<>();
+        ArrayList<Node> Blue = new ArrayList<>();
+        ArrayList<Node> Red = new ArrayList<>();
         //get neighbours
 
-        for(Polygon neighbour : neighbours){
-            if(neighbour.getUserData() == Player.RED){
-                switch (hexagon.getUserData()){
-                    case Player.BLUE:
+        //change to node
+
+        for(Node neighbour : neighbours){
+            if(neighbour.getTeam() == Team.Red){
+                switch (hexagon.getTeam()){
+                    case Team.Blue:
                         break;
-                    case Player.RED:
+                    case Team.Red:
                         Red.add(neighbour);
                         Red.add(hexagon);
                         RedGroupp.add(Red);
                         break;
                     default:
-                        throw new IllegalStateException("Unexpected value: " + hexagon.getUserData());
+                        throw new IllegalStateException("Unexpected value: " + hexagon.getTeam());
                 }
             }
-            if(neighbour.getUserData() == Player.BLUE){
-                switch (hexagon.getUserData()){
-                    case Player.BLUE:
+            if(neighbour.getTeam() == Team.Blue){
+                switch (hexagon.getTeam()){
+                    case Team.Blue:
                         Blue.add(neighbour);
                         Blue.add(hexagon);
                         BlueGroupp.add(Blue);
                         break;
-                    case Player.RED:
+                    case Team.Red:
                         break;
                     default:
-                        throw new IllegalStateException("Unexpected value: " + hexagon.getUserData());
+                        throw new IllegalStateException("Unexpected value: " + hexagon.getTeam());
                 }
             }
         }
@@ -234,6 +293,11 @@ public class boardController {
         Button button = (Button) mouseEvent.getSource();
         AnchorPane parent = (AnchorPane) button.getParent();
         removeAllCircles(parent);
+
+        for (int i = 0; i < Hex_db.length; i++) {
+            Arrays.fill(Hex_db[i], null);
+        }
+
     }
 
     public void removeTempCircles(MouseEvent mouseEvent) {
@@ -249,6 +313,7 @@ public class boardController {
 
         pane.getChildren().remove(TempCircle);
         TempCircle = null;
+
 
     }
 
