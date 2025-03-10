@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.*?>
+<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.*?>
@@ -8,9 +9,143 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1024.0" prefWidth="1460.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hex.hex.boardController">
     <children>
+        <Group layoutX="256.0" layoutY="249.0">
+            <children>
+                <Label alignment="CENTER" contentDisplay="CENTER" layoutY="1.0" text="A">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Label>
+                <Label alignment="CENTER" contentDisplay="CENTER" layoutY="67.0" text="B">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Label>
+                <Label alignment="CENTER" contentDisplay="CENTER" layoutY="133.0" text="C">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Label>
+                <Label alignment="CENTER" contentDisplay="CENTER" layoutY="199.0" text="D">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Label>
+                <Label alignment="CENTER" contentDisplay="CENTER" layoutY="263.0" text="E">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Label>
+                <Label alignment="CENTER" contentDisplay="CENTER" layoutY="337.0" text="F">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Label>
+                <Label alignment="CENTER" contentDisplay="CENTER" layoutY="399.0" text="G">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Label>
+                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="56.0" layoutY="432.0" text="H">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Label>
+                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="112.0" layoutY="465.0" text="I">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Label>
+                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="168.0" layoutY="498.0" text="J">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Label>
+                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="224.0" layoutY="531.0" text="K">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Label>
+                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="280.0" layoutY="564.0" text="L">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Label>
+                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="336.0" layoutY="597.0" text="M">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Label>
+                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="746.0" text="1">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Label>
+                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="746.0" layoutY="66.0" text="2">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Label>
+                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="746.0" layoutY="132.0" text="3">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Label>
+                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="746.0" layoutY="198.0" text="4">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Label>
+                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="746.0" layoutY="262.0" text="5">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Label>
+                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="746.0" layoutY="336.0" text="6">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Label>
+                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="746.0" layoutY="398.0" text="7">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Label>
+                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="690.0" layoutY="432.0" text="8">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Label>
+                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="634.0" layoutY="465.0" text="9">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Label>
+                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="578.0" layoutY="498.0" text="10">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Label>
+                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="522.0" layoutY="531.0" text="11">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Label>
+                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="466.0" layoutY="564.0" text="12">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Label>
+                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="410.0" layoutY="597.0" text="13">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Label>
+            </children>
+        </Group>
         <Button layoutX="1100.0" layoutY="435.0" mnemonicParsing="false" onMouseClicked="#removeCircles" text="Reset board" />
         <Button layoutX="1118.0" layoutY="602.0" mnemonicParsing="false" onAction="#Close" text="Close" />
-        <Polygon fx:id="B_1" fill="DODGERBLUE" layoutX="692.0" layoutY="74.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="B_1" fill="DODGERBLUE" layoutX="692.0" layoutY="74.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -26,7 +161,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="C_1" fill="DODGERBLUE" layoutX="748.0" layoutY="107.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="C_1" fill="DODGERBLUE" layoutX="748.0" layoutY="107.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -42,7 +177,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="A_2" fill="DODGERBLUE" layoutX="580.0" layoutY="74.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="A_2" fill="DODGERBLUE" layoutX="580.0" layoutY="74.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -58,7 +193,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="B_3" fill="DODGERBLUE" layoutX="580.0" layoutY="140.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="B_3" fill="DODGERBLUE" layoutX="580.0" layoutY="140.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -74,7 +209,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="B_2" fill="DODGERBLUE" layoutX="636.0" layoutY="107.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="B_2" fill="DODGERBLUE" layoutX="636.0" layoutY="107.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -90,8 +225,8 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="A_1" fill="DODGERBLUE" layoutX="636.0" layoutY="41.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" points="0.0, -50.0, 45.0, -25.0, 45.0, 25.0, 0.0, 50.0, -45.0, 25.0, -45.0, -25.0" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE" />
-        <Polygon fx:id="L_12" fill="DODGERBLUE" layoutX="636.0" layoutY="767.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="A_1" fill="DODGERBLUE" layoutX="636.0" layoutY="41.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" points="0.0, -50.0, 45.0, -25.0, 45.0, 25.0, 0.0, 50.0, -45.0, 25.0, -45.0, -25.0" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE" />
+        <Polygon fx:id="L_12" fill="DODGERBLUE" layoutX="636.0" layoutY="767.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -107,7 +242,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="M_7" fill="DODGERBLUE" layoutX="972.0" layoutY="635.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="M_7" fill="DODGERBLUE" layoutX="972.0" layoutY="635.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -123,7 +258,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="B_5" fill="DODGERBLUE" layoutX="468.0" layoutY="206.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="B_5" fill="DODGERBLUE" layoutX="468.0" layoutY="206.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -139,7 +274,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="B_7" fill="DODGERBLUE" layoutX="356.0" layoutY="272.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="B_7" fill="DODGERBLUE" layoutX="356.0" layoutY="272.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -155,7 +290,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="L_11" fill="DODGERBLUE" layoutX="692.0" layoutY="734.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="L_11" fill="DODGERBLUE" layoutX="692.0" layoutY="734.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -171,8 +306,8 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="L_8" fill="DODGERBLUE" layoutX="860.0" layoutY="635.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" points="0.0, -50.0, 45.0, -25.0, 45.0, 25.0, 0.0, 50.0, -45.0, 25.0, -45.0, -25.0" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE" />
-        <Polygon fx:id="L_6" fill="DODGERBLUE" layoutX="972.0" layoutY="569.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="L_8" fill="DODGERBLUE" layoutX="860.0" layoutY="635.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" points="0.0, -50.0, 45.0, -25.0, 45.0, 25.0, 0.0, 50.0, -45.0, 25.0, -45.0, -25.0" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE" />
+        <Polygon fx:id="L_6" fill="DODGERBLUE" layoutX="972.0" layoutY="569.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -188,7 +323,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="A_3" fill="DODGERBLUE" layoutX="524.0" layoutY="107.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="A_3" fill="DODGERBLUE" layoutX="524.0" layoutY="107.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -204,7 +339,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="B_4" fill="DODGERBLUE" layoutX="524.0" layoutY="173.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="B_4" fill="DODGERBLUE" layoutX="524.0" layoutY="173.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -220,7 +355,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="B_6" fill="DODGERBLUE" layoutX="412.0" layoutY="239.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="B_6" fill="DODGERBLUE" layoutX="412.0" layoutY="239.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -236,7 +371,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="F_1" fill="DODGERBLUE" layoutX="916.0" layoutY="206.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="F_1" fill="DODGERBLUE" layoutX="916.0" layoutY="206.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -252,7 +387,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="G_1" fill="DODGERBLUE" layoutX="972.0" layoutY="239.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="G_1" fill="DODGERBLUE" layoutX="972.0" layoutY="239.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -268,7 +403,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="D_1" fill="DODGERBLUE" layoutX="804.0" layoutY="140.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="D_1" fill="DODGERBLUE" layoutX="804.0" layoutY="140.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -284,7 +419,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="E_1" fill="DODGERBLUE" layoutX="860.0" layoutY="173.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="E_1" fill="DODGERBLUE" layoutX="860.0" layoutY="173.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -300,7 +435,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="A_4" fill="DODGERBLUE" layoutX="468.0" layoutY="140.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="A_4" fill="DODGERBLUE" layoutX="468.0" layoutY="140.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -316,7 +451,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="A_5" fill="DODGERBLUE" layoutX="412.0" layoutY="173.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="A_5" fill="DODGERBLUE" layoutX="412.0" layoutY="173.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -332,7 +467,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="A_6" fill="DODGERBLUE" layoutX="356.0" layoutY="206.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="A_6" fill="DODGERBLUE" layoutX="356.0" layoutY="206.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -348,7 +483,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="A_7" fill="DODGERBLUE" layoutX="300.0" layoutY="239.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="A_7" fill="DODGERBLUE" layoutX="300.0" layoutY="239.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -364,8 +499,8 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="G_13" fill="DODGERBLUE" layoutX="300.0" layoutY="635.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" points="0.0, -50.0, 45.0, -25.0, 45.0, 25.0, 0.0, 50.0, -45.0, 25.0, -45.0, -25.0" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE" />
-        <Polygon fx:id="C_9" fill="DODGERBLUE" layoutX="300.0" layoutY="371.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="G_13" fill="DODGERBLUE" layoutX="300.0" layoutY="635.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" points="0.0, -50.0, 45.0, -25.0, 45.0, 25.0, 0.0, 50.0, -45.0, 25.0, -45.0, -25.0" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE" />
+        <Polygon fx:id="C_9" fill="DODGERBLUE" layoutX="300.0" layoutY="371.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -381,8 +516,8 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="B_8" fill="DODGERBLUE" layoutX="300.0" layoutY="305.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" points="0.0, -50.0, 45.0, -25.0, 45.0, 25.0, 0.0, 50.0, -45.0, 25.0, -45.0, -25.0" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE" />
-        <Polygon fx:id="E_11" fill="DODGERBLUE" layoutX="300.0" layoutY="503.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="B_8" fill="DODGERBLUE" layoutX="300.0" layoutY="305.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" points="0.0, -50.0, 45.0, -25.0, 45.0, 25.0, 0.0, 50.0, -45.0, 25.0, -45.0, -25.0" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE" />
+        <Polygon fx:id="E_11" fill="DODGERBLUE" layoutX="300.0" layoutY="503.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -398,7 +533,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="D_10" fill="DODGERBLUE" layoutX="300.0" layoutY="437.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="D_10" fill="DODGERBLUE" layoutX="300.0" layoutY="437.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -414,7 +549,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="F_12" fill="DODGERBLUE" layoutX="300.0" layoutY="569.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="F_12" fill="DODGERBLUE" layoutX="300.0" layoutY="569.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -430,8 +565,8 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="L_10" fill="DODGERBLUE" layoutX="748.0" layoutY="701.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" points="0.0, -50.0, 45.0, -25.0, 45.0, 25.0, 0.0, 50.0, -45.0, 25.0, -45.0, -25.0" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE" />
-        <Polygon fx:id="I_3" fill="DODGERBLUE" layoutX="972.0" layoutY="371.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="L_10" fill="DODGERBLUE" layoutX="748.0" layoutY="701.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" points="0.0, -50.0, 45.0, -25.0, 45.0, 25.0, 0.0, 50.0, -45.0, 25.0, -45.0, -25.0" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE" />
+        <Polygon fx:id="I_3" fill="DODGERBLUE" layoutX="972.0" layoutY="371.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -447,8 +582,8 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="H_2" fill="DODGERBLUE" layoutX="972.0" layoutY="305.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" points="0.0, -50.0, 45.0, -25.0, 45.0, 25.0, 0.0, 50.0, -45.0, 25.0, -45.0, -25.0" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE" />
-        <Polygon fx:id="K_5" fill="DODGERBLUE" layoutX="972.0" layoutY="503.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="H_2" fill="DODGERBLUE" layoutX="972.0" layoutY="305.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" points="0.0, -50.0, 45.0, -25.0, 45.0, 25.0, 0.0, 50.0, -45.0, 25.0, -45.0, -25.0" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE" />
+        <Polygon fx:id="K_5" fill="DODGERBLUE" layoutX="972.0" layoutY="503.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -464,7 +599,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="J_4" fill="DODGERBLUE" layoutX="972.0" layoutY="437.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="J_4" fill="DODGERBLUE" layoutX="972.0" layoutY="437.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -480,7 +615,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="L_9" fill="DODGERBLUE" layoutX="804.0" layoutY="668.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="L_9" fill="DODGERBLUE" layoutX="804.0" layoutY="668.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -496,7 +631,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="H_13" fill="DODGERBLUE" layoutX="356.0" layoutY="668.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="H_13" fill="DODGERBLUE" layoutX="356.0" layoutY="668.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -512,7 +647,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="I_13" fill="DODGERBLUE" layoutX="412.0" layoutY="701.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="I_13" fill="DODGERBLUE" layoutX="412.0" layoutY="701.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -528,7 +663,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="L_13" fill="DODGERBLUE" layoutX="580.0" layoutY="800.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="L_13" fill="DODGERBLUE" layoutX="580.0" layoutY="800.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -544,7 +679,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="M_13" fill="DODGERBLUE" layoutX="636.0" layoutY="833.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="M_13" fill="DODGERBLUE" layoutX="636.0" layoutY="833.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -560,7 +695,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="J_13" fill="DODGERBLUE" layoutX="468.0" layoutY="734.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="J_13" fill="DODGERBLUE" layoutX="468.0" layoutY="734.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -576,7 +711,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="K_13" fill="DODGERBLUE" layoutX="524.0" layoutY="767.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="K_13" fill="DODGERBLUE" layoutX="524.0" layoutY="767.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -592,7 +727,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="M_8" fill="DODGERBLUE" layoutX="916.0" layoutY="668.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="M_8" fill="DODGERBLUE" layoutX="916.0" layoutY="668.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -608,8 +743,8 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="L_7" fill="DODGERBLUE" layoutX="916.0" layoutY="602.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" points="0.0, -50.0, 45.0, -25.0, 45.0, 25.0, 0.0, 50.0, -45.0, 25.0, -45.0, -25.0" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE" />
-        <Polygon fx:id="M_9" fill="DODGERBLUE" layoutX="860.0" layoutY="701.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="L_7" fill="DODGERBLUE" layoutX="916.0" layoutY="602.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" points="0.0, -50.0, 45.0, -25.0, 45.0, 25.0, 0.0, 50.0, -45.0, 25.0, -45.0, -25.0" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE" />
+        <Polygon fx:id="M_9" fill="DODGERBLUE" layoutX="860.0" layoutY="701.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -625,7 +760,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="M_10" fill="DODGERBLUE" layoutX="804.0" layoutY="734.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="M_10" fill="DODGERBLUE" layoutX="804.0" layoutY="734.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -641,7 +776,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="M_11" fill="DODGERBLUE" layoutX="748.0" layoutY="767.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="M_11" fill="DODGERBLUE" layoutX="748.0" layoutY="767.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -657,7 +792,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="M_12" fill="DODGERBLUE" layoutX="692.0" layoutY="800.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="M_12" fill="DODGERBLUE" layoutX="692.0" layoutY="800.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -673,7 +808,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="C_2" fill="DODGERBLUE" layoutX="692.0" layoutY="140.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="C_2" fill="DODGERBLUE" layoutX="692.0" layoutY="140.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -689,7 +824,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="C_4" fill="DODGERBLUE" layoutX="580.0" layoutY="206.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="C_4" fill="DODGERBLUE" layoutX="580.0" layoutY="206.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -705,7 +840,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="C_3" fill="DODGERBLUE" layoutX="636.0" layoutY="173.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="C_3" fill="DODGERBLUE" layoutX="636.0" layoutY="173.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -721,7 +856,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="C_6" fill="DODGERBLUE" layoutX="468.0" layoutY="272.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="C_6" fill="DODGERBLUE" layoutX="468.0" layoutY="272.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -737,7 +872,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="C_8" fill="DODGERBLUE" layoutX="356.0" layoutY="338.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="C_8" fill="DODGERBLUE" layoutX="356.0" layoutY="338.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -753,7 +888,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="C_5" fill="DODGERBLUE" layoutX="524.0" layoutY="239.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="C_5" fill="DODGERBLUE" layoutX="524.0" layoutY="239.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -769,7 +904,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="C_7" fill="DODGERBLUE" layoutX="412.0" layoutY="305.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="C_7" fill="DODGERBLUE" layoutX="412.0" layoutY="305.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -785,7 +920,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="D_2" fill="DODGERBLUE" layoutX="748.0" layoutY="173.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="D_2" fill="DODGERBLUE" layoutX="748.0" layoutY="173.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -801,7 +936,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="D_3" fill="DODGERBLUE" layoutX="692.0" layoutY="206.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="D_3" fill="DODGERBLUE" layoutX="692.0" layoutY="206.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -817,7 +952,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="D_5" fill="DODGERBLUE" layoutX="580.0" layoutY="272.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="D_5" fill="DODGERBLUE" layoutX="580.0" layoutY="272.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -833,7 +968,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="D_4" fill="DODGERBLUE" layoutX="636.0" layoutY="239.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="D_4" fill="DODGERBLUE" layoutX="636.0" layoutY="239.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -849,7 +984,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="D_7" fill="DODGERBLUE" layoutX="468.0" layoutY="338.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="D_7" fill="DODGERBLUE" layoutX="468.0" layoutY="338.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -865,7 +1000,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="D_9" fill="DODGERBLUE" layoutX="356.0" layoutY="404.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="D_9" fill="DODGERBLUE" layoutX="356.0" layoutY="404.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -881,7 +1016,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="D_6" fill="DODGERBLUE" layoutX="524.0" layoutY="305.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="D_6" fill="DODGERBLUE" layoutX="524.0" layoutY="305.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -897,7 +1032,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="D_8" fill="DODGERBLUE" layoutX="412.0" layoutY="371.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="D_8" fill="DODGERBLUE" layoutX="412.0" layoutY="371.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -913,7 +1048,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="E_2" fill="DODGERBLUE" layoutX="804.0" layoutY="206.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="E_2" fill="DODGERBLUE" layoutX="804.0" layoutY="206.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -929,7 +1064,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="E_3" fill="DODGERBLUE" layoutX="748.0" layoutY="239.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="E_3" fill="DODGERBLUE" layoutX="748.0" layoutY="239.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -945,7 +1080,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="E_4" fill="DODGERBLUE" layoutX="692.0" layoutY="272.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="E_4" fill="DODGERBLUE" layoutX="692.0" layoutY="272.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -961,7 +1096,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="E_6" fill="DODGERBLUE" layoutX="580.0" layoutY="338.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="E_6" fill="DODGERBLUE" layoutX="580.0" layoutY="338.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -977,7 +1112,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="E_5" fill="DODGERBLUE" layoutX="636.0" layoutY="305.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="E_5" fill="DODGERBLUE" layoutX="636.0" layoutY="305.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -993,7 +1128,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="E_8" fill="DODGERBLUE" layoutX="468.0" layoutY="404.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="E_8" fill="DODGERBLUE" layoutX="468.0" layoutY="404.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -1009,7 +1144,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="E_10" fill="DODGERBLUE" layoutX="356.0" layoutY="470.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="E_10" fill="DODGERBLUE" layoutX="356.0" layoutY="470.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -1025,7 +1160,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="E_7" fill="DODGERBLUE" layoutX="524.0" layoutY="371.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="E_7" fill="DODGERBLUE" layoutX="524.0" layoutY="371.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -1041,7 +1176,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="E_9" fill="DODGERBLUE" layoutX="412.0" layoutY="437.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="E_9" fill="DODGERBLUE" layoutX="412.0" layoutY="437.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -1057,7 +1192,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="F_2" fill="DODGERBLUE" layoutX="860.0" layoutY="239.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="F_2" fill="DODGERBLUE" layoutX="860.0" layoutY="239.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -1073,7 +1208,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="F_3" fill="DODGERBLUE" layoutX="804.0" layoutY="272.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="F_3" fill="DODGERBLUE" layoutX="804.0" layoutY="272.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -1089,7 +1224,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="F_4" fill="DODGERBLUE" layoutX="748.0" layoutY="305.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="F_4" fill="DODGERBLUE" layoutX="748.0" layoutY="305.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -1105,7 +1240,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="F_5" fill="DODGERBLUE" layoutX="692.0" layoutY="338.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="F_5" fill="DODGERBLUE" layoutX="692.0" layoutY="338.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -1121,7 +1256,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="F_7" fill="DODGERBLUE" layoutX="580.0" layoutY="404.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="F_7" fill="DODGERBLUE" layoutX="580.0" layoutY="404.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -1137,7 +1272,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="F_6" fill="DODGERBLUE" layoutX="636.0" layoutY="371.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="F_6" fill="DODGERBLUE" layoutX="636.0" layoutY="371.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -1153,7 +1288,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="F_9" fill="DODGERBLUE" layoutX="468.0" layoutY="470.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="F_9" fill="DODGERBLUE" layoutX="468.0" layoutY="470.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -1169,7 +1304,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="F_11" fill="DODGERBLUE" layoutX="356.0" layoutY="536.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="F_11" fill="DODGERBLUE" layoutX="356.0" layoutY="536.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -1185,7 +1320,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="F_8" fill="DODGERBLUE" layoutX="524.0" layoutY="437.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="F_8" fill="DODGERBLUE" layoutX="524.0" layoutY="437.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -1201,7 +1336,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="F_10" fill="DODGERBLUE" layoutX="412.0" layoutY="503.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="F_10" fill="DODGERBLUE" layoutX="412.0" layoutY="503.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -1217,7 +1352,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="G_2" fill="DODGERBLUE" layoutX="916.0" layoutY="272.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="G_2" fill="DODGERBLUE" layoutX="916.0" layoutY="272.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -1233,7 +1368,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="G_3" fill="DODGERBLUE" layoutX="860.0" layoutY="305.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="G_3" fill="DODGERBLUE" layoutX="860.0" layoutY="305.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -1249,7 +1384,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="G_4" fill="DODGERBLUE" layoutX="804.0" layoutY="338.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="G_4" fill="DODGERBLUE" layoutX="804.0" layoutY="338.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -1265,7 +1400,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="G_5" fill="DODGERBLUE" layoutX="748.0" layoutY="371.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="G_5" fill="DODGERBLUE" layoutX="748.0" layoutY="371.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -1281,7 +1416,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="G_6" fill="DODGERBLUE" layoutX="692.0" layoutY="404.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="G_6" fill="DODGERBLUE" layoutX="692.0" layoutY="404.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -1297,7 +1432,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="G_8" fill="DODGERBLUE" layoutX="580.0" layoutY="470.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="G_8" fill="DODGERBLUE" layoutX="580.0" layoutY="470.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -1313,7 +1448,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="G_7" fill="DODGERBLUE" layoutX="636.0" layoutY="437.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="G_7" fill="DODGERBLUE" layoutX="636.0" layoutY="437.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -1329,7 +1464,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="G_10" fill="DODGERBLUE" layoutX="468.0" layoutY="536.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="G_10" fill="DODGERBLUE" layoutX="468.0" layoutY="536.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -1345,7 +1480,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="G_12" fill="DODGERBLUE" layoutX="356.0" layoutY="602.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="G_12" fill="DODGERBLUE" layoutX="356.0" layoutY="602.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -1361,7 +1496,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="G_9" fill="DODGERBLUE" layoutX="524.0" layoutY="503.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="G_9" fill="DODGERBLUE" layoutX="524.0" layoutY="503.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -1377,7 +1512,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="G_11" fill="DODGERBLUE" layoutX="412.0" layoutY="569.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="G_11" fill="DODGERBLUE" layoutX="412.0" layoutY="569.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -1393,7 +1528,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="H_3" fill="DODGERBLUE" layoutX="916.0" layoutY="338.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="H_3" fill="DODGERBLUE" layoutX="916.0" layoutY="338.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -1409,7 +1544,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="H_4" fill="DODGERBLUE" layoutX="860.0" layoutY="371.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="H_4" fill="DODGERBLUE" layoutX="860.0" layoutY="371.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -1425,7 +1560,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="H_5" fill="DODGERBLUE" layoutX="804.0" layoutY="404.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="H_5" fill="DODGERBLUE" layoutX="804.0" layoutY="404.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -1441,7 +1576,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="H_6" fill="DODGERBLUE" layoutX="748.0" layoutY="437.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="H_6" fill="DODGERBLUE" layoutX="748.0" layoutY="437.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -1457,7 +1592,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="H_7" fill="DODGERBLUE" layoutX="692.0" layoutY="470.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="H_7" fill="DODGERBLUE" layoutX="692.0" layoutY="470.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -1473,7 +1608,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="H_8" fill="DODGERBLUE" layoutX="636.0" layoutY="503.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="H_8" fill="DODGERBLUE" layoutX="636.0" layoutY="503.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -1489,7 +1624,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="H_10" fill="DODGERBLUE" layoutX="524.0" layoutY="569.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="H_10" fill="DODGERBLUE" layoutX="524.0" layoutY="569.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -1505,7 +1640,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="H_9" fill="DODGERBLUE" layoutX="580.0" layoutY="536.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="H_9" fill="DODGERBLUE" layoutX="580.0" layoutY="536.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -1521,7 +1656,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="H_12" fill="DODGERBLUE" layoutX="412.0" layoutY="635.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="H_12" fill="DODGERBLUE" layoutX="412.0" layoutY="635.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -1537,7 +1672,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="H_11" fill="DODGERBLUE" layoutX="468.0" layoutY="602.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="H_11" fill="DODGERBLUE" layoutX="468.0" layoutY="602.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -1553,8 +1688,8 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="I_4" fill="DODGERBLUE" layoutX="916.0" layoutY="404.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" points="0.0, -50.0, 45.0, -25.0, 45.0, 25.0, 0.0, 50.0, -45.0, 25.0, -45.0, -25.0" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE" />
-        <Polygon fx:id="I_6" fill="DODGERBLUE" layoutX="804.0" layoutY="470.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="I_4" fill="DODGERBLUE" layoutX="916.0" layoutY="404.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" points="0.0, -50.0, 45.0, -25.0, 45.0, 25.0, 0.0, 50.0, -45.0, 25.0, -45.0, -25.0" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE" />
+        <Polygon fx:id="I_6" fill="DODGERBLUE" layoutX="804.0" layoutY="470.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -1570,7 +1705,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="I_7" fill="DODGERBLUE" layoutX="748.0" layoutY="503.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="I_7" fill="DODGERBLUE" layoutX="748.0" layoutY="503.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -1586,7 +1721,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="I_5" fill="DODGERBLUE" layoutX="860.0" layoutY="437.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="I_5" fill="DODGERBLUE" layoutX="860.0" layoutY="437.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -1602,7 +1737,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="I_8" fill="DODGERBLUE" layoutX="692.0" layoutY="536.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="I_8" fill="DODGERBLUE" layoutX="692.0" layoutY="536.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -1618,7 +1753,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="I_9" fill="DODGERBLUE" layoutX="636.0" layoutY="569.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="I_9" fill="DODGERBLUE" layoutX="636.0" layoutY="569.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -1634,7 +1769,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="I_10" fill="DODGERBLUE" layoutX="580.0" layoutY="602.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="I_10" fill="DODGERBLUE" layoutX="580.0" layoutY="602.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -1650,7 +1785,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="I_12" fill="DODGERBLUE" layoutX="468.0" layoutY="668.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="I_12" fill="DODGERBLUE" layoutX="468.0" layoutY="668.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -1666,7 +1801,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="I_11" fill="DODGERBLUE" layoutX="524.0" layoutY="635.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="I_11" fill="DODGERBLUE" layoutX="524.0" layoutY="635.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -1682,7 +1817,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="J_5" fill="DODGERBLUE" layoutX="916.0" layoutY="470.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="J_5" fill="DODGERBLUE" layoutX="916.0" layoutY="470.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -1698,8 +1833,8 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="J_6" fill="DODGERBLUE" layoutX="860.0" layoutY="503.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" points="0.0, -50.0, 45.0, -25.0, 45.0, 25.0, 0.0, 50.0, -45.0, 25.0, -45.0, -25.0" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE" />
-        <Polygon fx:id="J_8" fill="DODGERBLUE" layoutX="748.0" layoutY="569.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="J_6" fill="DODGERBLUE" layoutX="860.0" layoutY="503.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" points="0.0, -50.0, 45.0, -25.0, 45.0, 25.0, 0.0, 50.0, -45.0, 25.0, -45.0, -25.0" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE" />
+        <Polygon fx:id="J_8" fill="DODGERBLUE" layoutX="748.0" layoutY="569.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -1715,7 +1850,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="J_9" fill="DODGERBLUE" layoutX="692.0" layoutY="602.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="J_9" fill="DODGERBLUE" layoutX="692.0" layoutY="602.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -1731,7 +1866,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="J_7" fill="DODGERBLUE" layoutX="804.0" layoutY="536.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="J_7" fill="DODGERBLUE" layoutX="804.0" layoutY="536.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -1747,7 +1882,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="J_10" fill="DODGERBLUE" layoutX="636.0" layoutY="635.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="J_10" fill="DODGERBLUE" layoutX="636.0" layoutY="635.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -1763,7 +1898,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="J_11" fill="DODGERBLUE" layoutX="580.0" layoutY="668.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="J_11" fill="DODGERBLUE" layoutX="580.0" layoutY="668.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -1779,7 +1914,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="J_12" fill="DODGERBLUE" layoutX="524.0" layoutY="701.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="J_12" fill="DODGERBLUE" layoutX="524.0" layoutY="701.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -1795,7 +1930,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="K_6" fill="DODGERBLUE" layoutX="916.0" layoutY="536.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="K_6" fill="DODGERBLUE" layoutX="916.0" layoutY="536.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -1811,7 +1946,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="K_7" fill="DODGERBLUE" layoutX="860.0" layoutY="569.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="K_7" fill="DODGERBLUE" layoutX="860.0" layoutY="569.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -1827,8 +1962,8 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="K_8" fill="DODGERBLUE" layoutX="804.0" layoutY="602.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" points="0.0, -50.0, 45.0, -25.0, 45.0, 25.0, 0.0, 50.0, -45.0, 25.0, -45.0, -25.0" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE" />
-        <Polygon fx:id="K_10" fill="DODGERBLUE" layoutX="692.0" layoutY="668.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="K_8" fill="DODGERBLUE" layoutX="804.0" layoutY="602.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" points="0.0, -50.0, 45.0, -25.0, 45.0, 25.0, 0.0, 50.0, -45.0, 25.0, -45.0, -25.0" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE" />
+        <Polygon fx:id="K_10" fill="DODGERBLUE" layoutX="692.0" layoutY="668.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -1844,7 +1979,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="K_11" fill="DODGERBLUE" layoutX="636.0" layoutY="701.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="K_11" fill="DODGERBLUE" layoutX="636.0" layoutY="701.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -1860,7 +1995,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="K_9" fill="DODGERBLUE" layoutX="748.0" layoutY="635.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="K_9" fill="DODGERBLUE" layoutX="748.0" layoutY="635.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -1876,7 +2011,7 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-        <Polygon fx:id="K_12" fill="DODGERBLUE" layoutX="580.0" layoutY="734.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.75" scaleY="0.75" scaleZ="0.75" stroke="BLACK" strokeType="INSIDE">
+        <Polygon fx:id="K_12" fill="DODGERBLUE" layoutX="580.0" layoutY="734.0" onMouseClicked="#getHexID" onMouseEntered="#highlight" onMouseExited="#removeTempCircles" rotate="90.0" scaleX="0.6" scaleY="0.6" stroke="BLACK" strokeType="INSIDE">
             <points>
                 <Double fx:value="0.0" />
                 <Double fx:value="-50.0" />
@@ -1892,71 +2027,6 @@
                 <Double fx:value="-25.0" />
             </points>
         </Polygon>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="256.0" layoutY="250.0" text="A">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="256.0" layoutY="316.0" text="B">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="256.0" layoutY="382.0" text="C">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="256.0" layoutY="448.0" text="D">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="256.0" layoutY="512.0" text="E">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="256.0" layoutY="586.0" text="F">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="256.0" layoutY="648.0" text="G">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="312.0" layoutY="681.0" text="H">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="368.0" layoutY="714.0" text="I">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="424.0" layoutY="747.0" text="J">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="480.0" layoutY="780.0" text="K">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="536.0" layoutY="813.0" text="L">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="592.0" layoutY="846.0" text="M">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
 
     </children>
 </AnchorPane>

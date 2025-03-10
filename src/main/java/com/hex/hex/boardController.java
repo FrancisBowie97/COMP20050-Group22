@@ -47,9 +47,10 @@ public class boardController {
     private ArrayList<Circle> circles = new ArrayList<>();
     private Circle TempCircle;
 
-    private ArrayList<ArrayList<Node> > RedGroupp = new ArrayList<>();
-    private ArrayList<ArrayList<Node> > BlueGroupp = new ArrayList<>();
+    private ArrayList<ArrayList<Node> > RedGroupp = new ArrayList<ArrayList<Node>>();
+    private ArrayList<ArrayList<Node> > BlueGroupp = new ArrayList<ArrayList<Node>>();
     private Node[][] Hex_db = new Node[13][13];
+
 
     /**
      * Function to handle clinking on a Cell.
@@ -62,7 +63,7 @@ public class boardController {
         double x = hexagon.getLayoutX();
         double y = hexagon.getLayoutY();
 
-        System.out.println(x + " " + y + " " + Turn);
+//        System.out.println(x + " " + y + " " + Turn);
 
 
         AnchorPane parent = (AnchorPane) hexagon.getParent();
@@ -81,6 +82,14 @@ public class boardController {
                 circle.setMouseTransparent(true);
                 circles.add(circle);
                 Node temp = new Node(cord_index[1]+1, cord[0].toCharArray()[0], "Red");
+                if(checkGroup(temp) == null){
+                    group(temp);
+                }
+                else{
+                    ArrayList<Node> group = checkGroup(temp);
+                    group.add(temp);
+                    System.out.println("group added lolololol");
+                }
                 Hex_db[cord_index[0]][cord_index[1]] = temp;
                 parent.getChildren().add(circle);
                 Turn = Player.BLUE;
@@ -94,6 +103,7 @@ public class boardController {
                 circle.setMouseTransparent(true);
                 circles.add(circle);
                 Node temp = new Node(cord_index[1]+1, cord[0].toCharArray()[0], "Blue");
+                group(temp);
                 Hex_db[cord_index[0]][cord_index[1]] = temp;
                 parent.getChildren().add(circle);
                 Turn = Player.RED;
@@ -109,7 +119,7 @@ public class boardController {
         Dis_cord.setLayoutX(x-5);
         Dis_cord.setLayoutY(y-5);
         Dis_cord.setMouseTransparent(true);
-//        parent.getChildren().add(Dis_cord);
+        parent.getChildren().add(Dis_cord);
 
     }
 
@@ -134,31 +144,41 @@ public class boardController {
     private ArrayList<Node> getNeighbors(Node node) {
         ArrayList<Node> neighbors = new ArrayList<>();
         int[] loc = node.getIndexCords();
+//        System.out.println("COLUMN: " + loc[0]);
+//        System.out.println("ROW: "+ loc[1]);
+        //not top left edge
         if ( loc[0] > 0 ) {
-            if ( loc[1]-loc[0] == 6 ) {
+
+            if ( (loc[1]-loc[0]) != 6 ) {
+//                System.out.println("TOP LEFT");
                 neighbors.add(Hex_db[loc[0]-1][loc[1]]);
             }
             if ( loc[1] > 0 ) {
+//                System.out.println("TOP");
                 neighbors.add(Hex_db[loc[0]-1][loc[1]-1]);
             }
         }
-        if ( loc[0]-loc[1] == 6 ) {
+        if ( (loc[0]-loc[1]) != 6 ) {
             if ( loc[1] > 0 ) {
+//                System.out.println("TOP RIGHT");
                 neighbors.add(Hex_db[loc[0]][loc[1]-1]);
             }
             if ( loc[1] < 12 ) {
+//                System.out.println("BOTTOM RIGHT");
                 neighbors.add(Hex_db[loc[0]+1][loc[1]]);
             }
         }
         if ( loc[0] < 12 ) {
             if ( loc[1] < 12 ) {
+//                System.out.println("BOTTOM");
                 neighbors.add(Hex_db[loc[0]+1][loc[1]+1]);
             }
-            if ( loc[1]-loc[0] == 6 ) {
+            if ( (loc[1]-loc[0]) != 6 ) {
+//                System.out.println("BOTTOM LEFT");
                 neighbors.add(Hex_db[loc[0]][loc[1]+1]);
             }
         }
-
+        System.out.println(neighbors.size());
         return neighbors;
     }
 
@@ -170,11 +190,11 @@ public class boardController {
     private boolean isValid(Polygon hexagon) {
         int[] loc = Cord_to_index(Cord_convert(hexagon));
         if (Hex_db[loc[0]][loc[1]] == null) {
-            System.out.println("Empty");
+//            System.out.println("Empty");
             return true;
         }
         else {
-            System.out.println("Occupied");
+//            System.out.println("Occupied");
             return false;
         }
     }
@@ -190,7 +210,7 @@ public class boardController {
         // Y starts from 41 up to 833 with 33 step.
         String[] loc;
         loc = object.getId().split("_");
-        System.out.println(loc[0] + " " + loc[1]);
+//        System.out.println(loc[0] + " " + loc[1]);
 
 //        for (char ch : object.getId().toCharArray()) {}
 //        loc[0] += (char) ((x-300)/56);
@@ -222,24 +242,33 @@ public class boardController {
     }
 
     public ArrayList<Node> checkGroup(Node node){
-        //check if its apart of group and return that group
+        //check if it's apart of group and return that group
+        if(RedGroupp == null){
+            System.out.println("RedGroupp is null");
+        }
         for(ArrayList<Node> group : RedGroupp){
-            if(group.contains(node)){
-                return group;
+            for(Node node1 : group){
+                System.out.println(node1.toString());
+                if(node1.equals(node)){
+                    return group;
+                }
             }
         }
         for (ArrayList<Node> group : BlueGroupp){
-            if(group.contains(node)){
-                return group;
+            for(Node node1 : group){
+                if(node1.equals(node)){
+                    return group;
+                }
             }
         }
+        System.out.println("we aint found shiiii");
         return null;
     }
 
-    private ArrayList<Node> getNeighbors(Node node){
-        ArrayList<Node> neighbors = new ArrayList<>();
-        return neighbors;
-    }
+//    private ArrayList<Node> getNeighbors(Node node){
+//        ArrayList<Node> neighbors = new ArrayList<>();
+//        return neighbors;
+//    }
 
     public boolean isCapturing(Node node){
         ArrayList<Node> neighbors;
@@ -273,41 +302,50 @@ public class boardController {
 
     public void group(Node hexagon){
         //sample arrayList NEIGHBOUR
-         ArrayList<Node> neighbours = new ArrayList<>();
+         ArrayList<Node> neighbours = getNeighbors(hexagon);
         ArrayList<Node> Blue = new ArrayList<>();
         ArrayList<Node> Red = new ArrayList<>();
         //get neighbours
 
-        //change to node
 
-        for(Node neighbour : neighbours){
-            if(neighbour.getTeam() == Team.Red){
-                switch (hexagon.getTeam()){
-                    case Team.Blue:
-                        break;
-                    case Team.Red:
-                        Red.add(neighbour);
-                        Red.add(hexagon);
-                        RedGroupp.add(Red);
-                        break;
-                    default:
-                        throw new IllegalStateException("Unexpected value: " + hexagon.getTeam());
+        //change to node
+        if(!neighbours.isEmpty()){
+            for(Node neighbour : neighbours){
+                if (neighbour == null) {
+                    continue;  // Skip null neighbours instead of breaking the loop
                 }
-            }
-            if(neighbour.getTeam() == Team.Blue){
-                switch (hexagon.getTeam()){
-                    case Team.Blue:
-                        Blue.add(neighbour);
-                        Blue.add(hexagon);
-                        BlueGroupp.add(Blue);
-                        break;
-                    case Team.Red:
-                        break;
-                    default:
-                        throw new IllegalStateException("Unexpected value: " + hexagon.getTeam());
+                if(neighbour.getTeam() == Team.Red){
+                    switch (hexagon.getTeam()){
+                        case Team.Blue:
+                            break;
+                        case Team.Red:
+                            Red.add(neighbour);
+                            Red.add(hexagon);
+                            System.out.println("group red made");
+                            RedGroupp.add(Red);
+                            break;
+                        default:
+                            throw new IllegalStateException("Unexpected value: " + hexagon.getTeam());
+                    }
+                }
+                if(neighbour.getTeam() == Team.Blue){
+                    switch (hexagon.getTeam()){
+                        case Team.Blue:
+                            Blue.add(neighbour);
+                            Blue.add(hexagon);
+                            System.out.println("group blue made");
+                            BlueGroupp.add(Blue);
+                            break;
+                        case Team.Red:
+                            break;
+                        default:
+                            throw new IllegalStateException("Unexpected value: " + hexagon.getTeam());
+                    }
                 }
             }
         }
+
+
 
     }
 
