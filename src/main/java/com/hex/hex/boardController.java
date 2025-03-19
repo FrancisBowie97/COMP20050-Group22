@@ -82,13 +82,14 @@ public class boardController {
                 circle.setMouseTransparent(true);
                 circles.add(circle);
                 Node temp = new Node(cord_index[1]+1, cord[0].toCharArray()[0], "Red");
-                if(checkGroup(temp) == null){
+                ArrayList<Node> group = checkGroup(temp);
+                if(group == null){
                     group(temp);
                 }
-                else{
-                    ArrayList<Node> group = checkGroup(temp);
+                if (RedGroupp.contains(group)){
+                    assert group != null;
                     group.add(temp);
-                    System.out.println("group added lolololol");
+                    System.out.println("group red added lolololol");
                 }
                 Hex_db[cord_index[0]][cord_index[1]] = temp;
                 parent.getChildren().add(circle);
@@ -103,7 +104,15 @@ public class boardController {
                 circle.setMouseTransparent(true);
                 circles.add(circle);
                 Node temp = new Node(cord_index[1]+1, cord[0].toCharArray()[0], "Blue");
-                group(temp);
+                ArrayList<Node> group = checkGroup(temp);
+                if(group == null){
+                    group(temp);
+                }
+                if (BlueGroupp.contains(group)){
+                    assert group != null;
+                    group.add(temp);
+                    System.out.println("group blue added lolololol");
+                }
                 Hex_db[cord_index[0]][cord_index[1]] = temp;
                 parent.getChildren().add(circle);
                 Turn = Player.RED;
@@ -242,26 +251,60 @@ public class boardController {
     }
 
     public ArrayList<Node> checkGroup(Node node){
-        //check if it's apart of group and return that group
-        if(RedGroupp == null){
-            System.out.println("RedGroupp is null");
-        }
-        for(ArrayList<Node> group : RedGroupp){
-            for(Node node1 : group){
-                System.out.println(node1.toString());
-                if(node1.equals(node)){
-                    return group;
+        ArrayList<Node> neighbors;
+        neighbors = getNeighbors(node);
+
+        for(Node neighbor : neighbors){
+
+            if(checkColor(node) == Team.Red){
+                for(ArrayList<Node> group : RedGroupp){
+                    for(Node node1 : group){
+                        if(node1.equals(neighbor)){
+                            return group;
+                        }
+                    }
                 }
             }
-        }
-        for (ArrayList<Node> group : BlueGroupp){
-            for(Node node1 : group){
-                if(node1.equals(node)){
-                    return group;
-                }
+            else if(checkColor(node) == Team.Blue){
+                for (ArrayList<Node> group : BlueGroupp){
+                  for(Node node1 : group){
+                     if(node1.equals(neighbor)){
+                         return group;
+                     }
+                 }
             }
+            }
+//            for (ArrayList<Node> group : BlueGroupp){
+//                for(Node node1 : group){
+//                    if(node1.equals(neighbor)){
+//                        return group;
+//                    }
+//                }
+//            }
         }
-        System.out.println("we aint found shiiii");
+//        //check if it's apart of group and return that group
+//        if(RedGroupp == null){
+//            System.out.println("RedGroupp is null");
+//        }
+//
+//        for(ArrayList<Node> group : RedGroupp){
+//            for(Node node1 : group){
+//                System.out.println(node1.toString());
+//                if(node1.equals(node)){
+//                    return group;
+//                }
+//            }
+//        }
+//
+//        for (ArrayList<Node> group : BlueGroupp){
+//            for(Node node1 : group){
+//                if(node1.equals(node)){
+//                    return group;
+//                }
+//            }
+//        }
+//
+//        System.out.println("we aint found shiiii");
         return null;
     }
 
