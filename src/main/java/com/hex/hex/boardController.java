@@ -24,7 +24,6 @@ enum Player {RED, BLUE} // enum to keep track of player turns
 /**
  * Board Class to control and store data regarding Cells and Nodes.
  */
-
 public class boardController {
     Player Turn = Player.RED;
 
@@ -345,7 +344,7 @@ public class boardController {
         }
     }
 
-    public Team checkColor(Node node) {
+    public static Team checkColor(Node node) {
 
         if(node != null) {
             return node.getTeam();
@@ -523,7 +522,6 @@ public class boardController {
 
         pane.getChildren().remove(TempCircle);
         TempCircle = null;
-
 
     }
 

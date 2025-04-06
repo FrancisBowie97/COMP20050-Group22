@@ -47,7 +47,7 @@ public class Node {
     }
 
     public int[] getIndexCords() {
-        return new int[]{col, row};
+        return new int[]{col, row-1};
     }
 
     @Override
