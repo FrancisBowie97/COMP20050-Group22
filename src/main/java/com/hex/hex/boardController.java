@@ -1,5 +1,6 @@
 package com.hex.hex;
 
+import com.fasterxml.jackson.databind.deser.std.UntypedObjectDeserializer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -7,9 +8,8 @@ import javafx.scene.control.Label;
 
 
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.ResourceBundle;
+import java.util.*;
+import java.util.stream.Collectors;
 
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -47,17 +47,17 @@ public class boardController {
     private ArrayList<Circle> circles = new ArrayList<>();
     private Circle TempCircle;
 
-    private ArrayList<ArrayList<Node> > RedGroupp = new ArrayList<ArrayList<Node>>();
-    private ArrayList<ArrayList<Node> > BlueGroupp = new ArrayList<ArrayList<Node>>();
+    private ArrayList<ArrayList<Node>> RedGroupp = new ArrayList<ArrayList<Node>>();
+    private ArrayList<ArrayList<Node>> BlueGroupp = new ArrayList<ArrayList<Node>>();
     private Node[][] Hex_db = new Node[13][13];
-
 
     /**
      * Function to handle clinking on a Cell.
+     *
      * @param mouseEvent pass the mouse event to function.
      */
     @FXML
-    public void getHexID(javafx.scene.input.MouseEvent mouseEvent) {
+    public void getHexID(MouseEvent mouseEvent) {
 
         Polygon hexagon = (Polygon) mouseEvent.getSource();
         double x = hexagon.getLayoutX();
@@ -75,44 +75,139 @@ public class boardController {
             int[] cord_index = Cord_to_index(cord);
 
 
-            if(Turn == Player.RED){
+            if (Turn == Player.RED) {
+
 
                 Circle circle = new Circle(x, y, 32.5);
                 circle.setFill(Color.RED);
                 circle.setMouseTransparent(true);
                 circles.add(circle);
-                Node temp = new Node(cord_index[1]+1, cord[0].toCharArray()[0], "Red");
-                ArrayList<Node> group = checkGroup(temp);
-                if(group == null){
-                    group(temp);
+
+                Node temp = new Node(cord_index[1] + 1, cord[0].toCharArray()[0], "Red");
+                ArrayList<ArrayList<Node>> group = checkGroup(temp);
+
+                // DOES THE NON CAPTURING PART
+
+                ArrayList<Node> neighbors = getNeighbors(temp);
+
+                boolean hasRedNeighbour = false;
+                boolean hasBlueNeighbour = false;
+
+
+                for (Node neighbor : neighbors) {
+                    if (neighbor == null) continue;
+
+                    if (neighbor.getTeam() == Team.Red) {
+                        hasRedNeighbour = true;
+                    } else if (neighbor.getTeam() == Team.Blue) {
+                        hasBlueNeighbour = true;
+                    }
                 }
-                if (RedGroupp.contains(group)){
-                    assert group != null;
-                    group.add(temp);
-                    System.out.println("group red added lolololol");
+
+
+
+
+                boolean allNeighborsNull = neighbors.stream().allMatch(n -> n == null || n.getTeam() == null);
+
+                if (!hasBlueNeighbour && !allNeighborsNull) {
+                    System.out.println("Invalid move: Must be adjacent to Blue or isolated.");
+                    return;
                 }
+
+                if (hasRedNeighbour && group.isEmpty()) {
+                    System.out.println("capturing move");
+
+                }
+
+
+                if (group.isEmpty()) {
+                    System.out.println("isempty");
+                    group(temp);  // Call your method to handle the empty case
+                } else if (group.size() > 1) {
+                    special_add(group);  // Handle large groups
+                } else {
+                    // Handle small groups (size < 2)
+                    group.stream()
+                            .filter(RedGroupp::contains)  // Only process groups in RedGroupp
+                            .forEach(group2 -> {
+                                group2.add(temp);
+                                System.out.println("group red added lolololol");
+                            });
+                }
+
+
                 Hex_db[cord_index[0]][cord_index[1]] = temp;
                 parent.getChildren().add(circle);
                 Turn = Player.BLUE;
 
                 displayTurn(parent);
-            }
-            else if(Turn == Player.BLUE){
+
+
+            } else if (Turn == Player.BLUE) {
 
                 Circle circle = new Circle(x, y, 32.5);
                 circle.setFill(Color.BLUE);
                 circle.setMouseTransparent(true);
                 circles.add(circle);
-                Node temp = new Node(cord_index[1]+1, cord[0].toCharArray()[0], "Blue");
-                ArrayList<Node> group = checkGroup(temp);
-                if(group == null){
-                    group(temp);
+                Node temp = new Node(cord_index[1] + 1, cord[0].toCharArray()[0], "Blue");
+                ArrayList<ArrayList<Node>> group = checkGroup(temp);
+
+                //START OF NON CAPTURING PART
+                ArrayList<Node> neighbors;
+                neighbors = getNeighbors(temp);
+
+
+                boolean hasBlueNeighbour = false;
+                boolean hasRedNeighbour = false;
+
+
+
+                for (Node neighbor : neighbors) {
+                    if (neighbor == null) continue;
+
+                    if (neighbor.getTeam() == Team.Blue) {
+                        hasBlueNeighbour = true;
+                    } else if (neighbor.getTeam() == Team.Red) {
+                        hasRedNeighbour = true;
+                    }
                 }
-                if (BlueGroupp.contains(group)){
-                    assert group != null;
-                    group.add(temp);
-                    System.out.println("group blue added lolololol");
+
+
+
+
+                //Are all the neighbors either missing or unclaimed?
+                boolean allNeighborsNull = neighbors.stream().allMatch(n -> n == null || n.getTeam() == null);
+
+                //if not red neighbour
+                if (!hasRedNeighbour && !allNeighborsNull) {
+                    System.out.println("Invalid move: Must be adjacent to Red or isolated.");
+                    return;
                 }
+
+
+                if (hasBlueNeighbour && group.isEmpty()) {
+                    System.out.println("capturing move");
+
+                }
+
+                //END OF NON CAPTURING PART
+
+                if (group.isEmpty()) {
+                    System.out.println("isempty");
+                    group(temp);  // Call your method to handle the empty case
+                } else if (group.size() > 1) {
+                    special_add(group);  // Handle large groups
+                } else {
+                    // Handle small groups (size < 2)
+                    group.stream()
+                            .filter(BlueGroupp::contains)  // Only process groups in RedGroupp
+                            .forEach(group2 -> {
+                                group2.add(temp);
+                                System.out.println("group blue added lolololol");
+                            });
+                }
+
+
                 Hex_db[cord_index[0]][cord_index[1]] = temp;
                 parent.getChildren().add(circle);
                 Turn = Player.RED;
@@ -125,8 +220,8 @@ public class boardController {
         //Temp Debugging
         Label Dis_cord;
         Dis_cord = new Label(Arrays.toString(hexagon.getId().split("_")));
-        Dis_cord.setLayoutX(x-5);
-        Dis_cord.setLayoutY(y-5);
+        Dis_cord.setLayoutX(x - 5);
+        Dis_cord.setLayoutY(y - 5);
         Dis_cord.setMouseTransparent(true);
         parent.getChildren().add(Dis_cord);
 
@@ -134,6 +229,7 @@ public class boardController {
 
     /**
      * Function to convert alphanumeric coordinates to array index for ease of access.
+     *
      * @param cord alphanumeric coordinates from Cord_convert().
      * @return array index to access Cell info.
      */
@@ -147,6 +243,7 @@ public class boardController {
 
     /**
      * Function to return all the neighbours(Nodes) surrounding given node.
+     *
      * @param node pass the node whose neighbours are to be returned
      * @return an Arraylist of valid neighbours
      */
@@ -156,35 +253,35 @@ public class boardController {
 //        System.out.println("COLUMN: " + loc[0]);
 //        System.out.println("ROW: "+ loc[1]);
         //not top left edge
-        if ( loc[0] > 0 ) {
+        if (loc[0] > 0) {
 
-            if ( (loc[1]-loc[0]) != 6 ) {
+            if ((loc[1] - loc[0]) != 6) {
 //                System.out.println("TOP LEFT");
-                neighbors.add(Hex_db[loc[0]-1][loc[1]]);
+                neighbors.add(Hex_db[loc[0] - 1][loc[1]]);
             }
-            if ( loc[1] > 0 ) {
+            if (loc[1] > 0) {
 //                System.out.println("TOP");
-                neighbors.add(Hex_db[loc[0]-1][loc[1]-1]);
+                neighbors.add(Hex_db[loc[0] - 1][loc[1] - 1]);
             }
         }
-        if ( (loc[0]-loc[1]) != 6 ) {
-            if ( loc[1] > 0 ) {
+        if ((loc[0] - loc[1]) != 6) {
+            if (loc[1] > 0) {
 //                System.out.println("TOP RIGHT");
-                neighbors.add(Hex_db[loc[0]][loc[1]-1]);
+                neighbors.add(Hex_db[loc[0]][loc[1] - 1]);
             }
-            if ( loc[1] < 12 ) {
+            if (loc[1] < 12) {
 //                System.out.println("BOTTOM RIGHT");
-                neighbors.add(Hex_db[loc[0]+1][loc[1]]);
+                neighbors.add(Hex_db[loc[0] + 1][loc[1]]);
             }
         }
-        if ( loc[0] < 12 ) {
-            if ( loc[1] < 12 ) {
+        if (loc[0] < 12) {
+            if (loc[1] < 12) {
 //                System.out.println("BOTTOM");
-                neighbors.add(Hex_db[loc[0]+1][loc[1]+1]);
+                neighbors.add(Hex_db[loc[0] + 1][loc[1] + 1]);
             }
-            if ( (loc[1]-loc[0]) != 6 ) {
+            if ((loc[1] - loc[0]) != 6) {
 //                System.out.println("BOTTOM LEFT");
-                neighbors.add(Hex_db[loc[0]][loc[1]+1]);
+                neighbors.add(Hex_db[loc[0]][loc[1] + 1]);
             }
         }
         System.out.println(neighbors.size());
@@ -193,6 +290,7 @@ public class boardController {
 
     /**
      * Function to determine if a move is valid not. (currently only checks if cell is empty).
+     *
      * @param hexagon pass the concerned cell.
      * @return Boolean value depending on validity of move.
      */
@@ -201,17 +299,17 @@ public class boardController {
         if (Hex_db[loc[0]][loc[1]] == null) {
 //            System.out.println("Empty");
             return true;
-        }
-        else {
+        } else {
 //            System.out.println("Occupied");
             return false;
         }
+
     }
 
     /**
      * Function to convert X and Y location values into grid coordinate system (e.g. "A1").
      *
-     * @param object  the object passed into the function i.e. Hex.
+     * @param object the object passed into the function i.e. Hex.
      * @return Converted grid coordinates in alphanumeric.
      */
     private String[] Cord_convert(Polygon object) {
@@ -231,8 +329,9 @@ public class boardController {
     }
 
     private Label turnLabel;
-    public void displayTurn(AnchorPane parent){
-        if(turnLabel == null){
+
+    public void displayTurn(AnchorPane parent) {
+        if (turnLabel == null) {
             turnLabel = new Label("Red players turn");
             turnLabel.setLayoutX(1095);
             turnLabel.setLayoutY(375);
@@ -246,106 +345,102 @@ public class boardController {
         }
     }
 
-    public Team checkColor(Node node){
-        return node.getTeam();
-    }
+    public Team checkColor(Node node) {
 
-    public ArrayList<Node> checkGroup(Node node){
-        ArrayList<Node> neighbors;
-        neighbors = getNeighbors(node);
-
-        for(Node neighbor : neighbors){
-
-            if(checkColor(node) == Team.Red){
-                for(ArrayList<Node> group : RedGroupp){
-                    for(Node node1 : group){
-                        if(node1.equals(neighbor)){
-                            return group;
-                        }
-                    }
-                }
-            }
-            else if(checkColor(node) == Team.Blue){
-                for (ArrayList<Node> group : BlueGroupp){
-                  for(Node node1 : group){
-                     if(node1.equals(neighbor)){
-                         return group;
-                     }
-                 }
-            }
-            }
-//            for (ArrayList<Node> group : BlueGroupp){
-//                for(Node node1 : group){
-//                    if(node1.equals(neighbor)){
-//                        return group;
-//                    }
-//                }
-//            }
+        if(node != null) {
+            return node.getTeam();
         }
-//        //check if it's apart of group and return that group
-//        if(RedGroupp == null){
-//            System.out.println("RedGroupp is null");
-//        }
-//
-//        for(ArrayList<Node> group : RedGroupp){
-//            for(Node node1 : group){
-//                System.out.println(node1.toString());
-//                if(node1.equals(node)){
-//                    return group;
-//                }
-//            }
-//        }
-//
-//        for (ArrayList<Node> group : BlueGroupp){
-//            for(Node node1 : group){
-//                if(node1.equals(node)){
-//                    return group;
-//                }
-//            }
-//        }
-//
-//        System.out.println("we aint found shiiii");
+//        System.out.println("nooooooo");
         return null;
     }
 
-//    private ArrayList<Node> getNeighbors(Node node){
-//        ArrayList<Node> neighbors = new ArrayList<>();
-//        return neighbors;
-//    }
+    //returns the groups around a node
+    public ArrayList<ArrayList<Node>> checkGroup(Node node) {
+        ArrayList<ArrayList<Node>> collection = new ArrayList<>();
+        ArrayList<Node> neighbors;
+        neighbors = getNeighbors(node);
+
+        for (Node neighbor : neighbors) {
+
+            if (checkColor(node) == Team.Red) {
+                collection = RedGroupp.stream()
+                        .filter(group -> containsAny(group, neighbors))
+                        .collect(Collectors.toCollection(ArrayList::new));
+                return collection;
+            } else if (checkColor(node) == Team.Blue) {
+                collection = BlueGroupp.stream()
+                        .filter(group -> containsAny(group, neighbors))
+                        .collect(Collectors.toCollection(ArrayList::new));
+                return collection;
+            }
+        }
+
+        System.out.println("we aint found shiiii");
+        return null;
+    }
+
+    public static boolean containsAny(List<Node> group, List<Node> neighbors) {
+        for (Node neighbor : neighbors) {
+            if (group.contains(neighbor)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+
+
+        // add groups for more than one group
+    public ArrayList<Node> special_add(ArrayList<ArrayList<Node>> big_boi) {
+        //finds biggest group
+        ArrayList<Node> max = big_boi.stream()
+                .max(Comparator.comparingInt(List::size))
+                .orElse(new ArrayList<>());
+        //adds to the biggest group
+        for (ArrayList<Node> boi : big_boi) {
+            if (max != boi) {
+                System.out.println("2 groups thingy");
+                max.addAll(boi);
+                boi.clear();
+            }
+        }
+
+        return max;
+    }
+
+
+
 
     public boolean isCapturing(Node node){
         ArrayList<Node> neighbors;
         neighbors = getNeighbors(node);
-        for(Node neighbor : neighbors){
-            if(neighbor.getTeam() == node.getTeam()){
-                //group
-                //non-capturing
-                return false;
-            }
-            else if(neighbor.getTeam() == null){
-                //empty
-            }
-            else{
-                //opps
-                ArrayList<Node> bomboclat = checkGroup(neighbor);
-                ArrayList<Node> grap = checkGroup(neighbor);
-                if(bomboclat.size() > grap.size()){
-                    //cant do this move
-                    return false;
-                }
-                else if(bomboclat.size() < grap.size()){
-                    //remove that group
-                    return true;
+        return false;
+    }
+
+
+    public ArrayList<Node> findGroup(Node node){
+        if(node.getTeam() == Team.Red){
+            for(ArrayList<Node> group : RedGroupp){
+                if(group.contains(node)){
+                    return group;
                 }
             }
         }
-        return false;
-
+        else if(node.getTeam() == Team.Blue){
+            for(ArrayList<Node> group : BlueGroupp){
+                if(group.contains(node)){
+                    return group;
+                }
+            }
+        }
+        return null;
     }
 
+
+    //makes the group
     public void group(Node hexagon){
         //sample arrayList NEIGHBOUR
-         ArrayList<Node> neighbours = getNeighbors(hexagon);
+        ArrayList<Node> neighbours = getNeighbors(hexagon);
         ArrayList<Node> Blue = new ArrayList<>();
         ArrayList<Node> Red = new ArrayList<>();
         //get neighbours
@@ -446,32 +541,36 @@ public class boardController {
      */
     public void highlight(MouseEvent mouseEvent) {
         Polygon hexagon = (Polygon) mouseEvent.getSource();
-        if (isValid(hexagon)) {
-            if (TempCircle == null){
-                double x = hexagon.getLayoutX();
-                double y = hexagon.getLayoutY();
 
-                Circle circle = new Circle(x, y, 27);
-                //circles.add(circle);
-                circle.setOpacity(0.5);
-                circle.setMouseTransparent(true);  // This allows interaction with the Cell through the TempCircle.
-                ((AnchorPane) hexagon.getParent()).getChildren().add(circle);
-                if (Turn == Player.RED){
-                    circle.setFill(Color.RED);
-                }
-                else if(Turn == Player.BLUE){
-                    circle.setFill(Color.BLUE);
-                }
-                else {
-                    circle.setFill(Color.WHITE);
-                }
-                TempCircle = circle;
-                AnchorPane parent = (AnchorPane) hexagon.getParent();
-                if (!parent.getChildren().contains(circle)) {
-                    parent.getChildren().add(circle);
+            if (isValid(hexagon)) {
+                if (TempCircle == null){
+                    double x = hexagon.getLayoutX();
+                    double y = hexagon.getLayoutY();
+
+                    Circle circle = new Circle(x, y, 27);
+                    //circles.add(circle);
+                    circle.setOpacity(0.5);
+                    circle.setMouseTransparent(true);  // This allows interaction with the Cell through the TempCircle.
+                    ((AnchorPane) hexagon.getParent()).getChildren().add(circle);
+                    if (Turn == Player.RED){
+                        circle.setFill(Color.RED);
+                    }
+                    else if(Turn == Player.BLUE){
+                        circle.setFill(Color.BLUE);
+                    }
+                    else {
+                        circle.setFill(Color.WHITE);
+                    }
+                    TempCircle = circle;
+                    AnchorPane parent = (AnchorPane) hexagon.getParent();
+                    if (!parent.getChildren().contains(circle)) {
+                        parent.getChildren().add(circle);
+                    }
                 }
             }
-        }
+
+
+
 
     }
 }
